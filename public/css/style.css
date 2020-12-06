@@ -1,0 +1,30 @@
+html{
+	direction: rtl;
+}
+/* ============================================
+          container-fluid
+============================================ */
+.container-fluid {
+    width: 100%;
+    padding-right:0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+address{
+    text-align: right;
+}
+
+/* ============================================
+          container
+============================================ */
+.article{
+    font-size: 16px;
+    line-height: 2rem;
+    font-family: "Noto Naskh Arabic", "Open Sans", serif;
+    word-break: break-word;
+}
+
+.img-circle {
+    border-radius: 100%;
+}
