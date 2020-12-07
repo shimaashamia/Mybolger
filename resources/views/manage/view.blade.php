@@ -17,7 +17,14 @@
 
 
 <div class="container">
-<a href="add" type="button" class="btn btn-success mb-3 mt-5">Add new article</a>
+<div class="row">
+    <div class="col">
+    <h3 class="text-right">المواضيع الغير موجودة</h3>
+    </div>
+    <div class="col">
+    <a href="add" type="button" class="btn btn-success mb-3 mt-5"> إضافة المنشور</a>
+    </div>
+  </div>
     <table class="table table-light text-right">
         <tbody>
             @foreach ($articles as $art)
@@ -42,7 +49,7 @@
                 <td>
                     <!-- <div class="col-4"> -->
                     <div class="media">
-                        <img src="assets/img/testimonail.png" class="align-self-center mr-3 img-circle" alt="..."
+                        <img src="assets/img/comment_2.png" class="align-self-center mr-3 img-circle" alt="..."
                             width="70">
                         <div class="media-body">
                             <h5 class="mt-0">{{ Auth::user()->name }}</h5>

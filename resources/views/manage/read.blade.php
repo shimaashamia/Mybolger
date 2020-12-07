@@ -93,6 +93,13 @@
                         <article class="content replace_urls">
                             <article class="comment reply_content replace_urls px-2">
                                 {{$c->comment}}
+                                <a onclick="return confirm('Are you sure dude?')" href='/manage/read/{{$c->id}}/delete' class='btn btn-sm btn-danger'>حذف</a>
+                                <form method='post' action='{{asset("manage/read/".$c->id)}}/delete'>
+                                    @csrf
+                                    @method("delete")
+                                    <input type='submit' onclick='return confirm("هل بتأكيد تريد الحذف ?")' value='حذف'
+                                        class='btn btn-danger btn-sm ' />
+                                </form>
                             </article>
                         </article>
                     </div>

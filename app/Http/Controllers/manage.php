@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Article;
 use App\Comment;
+use DB;
 class manage extends Controller
 {
 
@@ -67,4 +68,30 @@ class manage extends Controller
     	$ar=Array('articles'=>$articles);
       return view('manage.read',$ar);
     }
+
+    // public function destroy($id)
+    // {
+    //     DB::table("comments")->where("id",$id)->delete();
+    //     session()->flash("msg","تم الحذف بنجاح");
+    //     return redirect(route("manage",$ar));
+    // }
+    public function destroy($id)
+    {
+        DB::table("comments")->where("id",$id)->delete();
+            session()->flash("msg","تم الحذف بنجاح");
+            $articles=Article::find($id);
+    	$ar=Array('articles'=>$articles);
+            return redirect(route('manage.read',$ar));
+        //
+        // $comment = Comment::find($id);
+        // $comment->delete();
+        // \Session::flash('msg','w:chalet Deleted Successfully');
+        // return view('manage.read');
+
+        // $comment = Comment::find($id);
+        //      $comment->delete();
+        //      return view('manage.read');
+        //      $comment->save();
+    }
+
 }

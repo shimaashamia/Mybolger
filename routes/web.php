@@ -22,3 +22,11 @@ Route::post('add', 'manage@AddArticle');
 Route::get('view', 'manage@view');
 Route::get('read/{id}', 'manage@read');
 Route::post('read/{id}', 'manage@read');
+Route::get('/manage/read/{id}/delete','manage@destroy');
+
+Route::resource('admin', AdminController::class);
+Route::resource('comments', CommentController::class);
+// Route::get("manage/read/{id}/delete",[manage::class,'destroy'])->name("manage.delete");
+
+
+

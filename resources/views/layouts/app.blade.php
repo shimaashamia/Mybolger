@@ -26,6 +26,9 @@
 
     @yield('css')
     <style>
+    html{
+	direction: rtl;
+}
     .navbar-nav {
                 color: #636b6f;
                 padding: 0 25px;
@@ -43,7 +46,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'بلوجر') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -52,11 +55,11 @@
 
     <ul class="nav navbar-nav">
     
-        <li><a style=" color: #636b6f; padding: 14px 16px;  text-decoration: none" href="{{url('/home')}}">Home</a></li>
+        <li><a style=" color: #636b6f; padding: 14px 16px;  text-decoration: none" href="{{url('/home')}}">الرئيسية</a></li>
 
         <li><a style=" color: #636b6f;  text-decoration: none;
         
-        " href="{{url('/view')}}">Articles</a></li>
+        " href="{{url('/view')}}">المواضيع الغير موجودة</a></li>
     </ul>
 </div>
 
@@ -104,6 +107,22 @@
         </nav>
 
         <main>
+         <!-- Begin page content -->
+    <main role="main" class="flex-shrink-0">
+        <div class="container">
+            <h1 class="mt-5">@yield("title")</h1>            
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            @if(\Session::get("msg"))
+                <div class='alert alert-info'>{{\Session::get("msg")}}</div>
+            @endif
             @yield('content')
         </main>
     </div>
